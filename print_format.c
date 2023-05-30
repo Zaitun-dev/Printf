@@ -18,7 +18,7 @@ int check_format_specifier(char specifier, va_list ap, int *count);
 * @format: format used
 * @...:variadic arguments passed (unknown)
 * Return: the output
-*/
+ */
 int _printf(const char *format, ...)
 {
 int count = 0;
@@ -29,7 +29,6 @@ while (format[i])
 {
 if (format[i] != '%')
 {
-_putchar(format[i]);
 _putchar(format[i]);
 count++;
 }
