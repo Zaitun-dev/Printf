@@ -69,3 +69,12 @@ divisor /= 10;
 }
 return (count);
 }
+/* functions that prints binary*/
+void print_binary(unsigned int num)
+{
+if (num > 1)
+{
+print_binary(num / 2);
+printf("%u", num % 2);
+}
+}
