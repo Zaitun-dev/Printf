@@ -69,6 +69,10 @@ divisor /= 10;
 }
 return (count);
 }
+/**
+* print_binary - Prints the binary representation of an unsigned integer
+* @num: The unsigned integer to convert and print in binary
+*/
 /* functions that prints binary*/
 void print_binary(unsigned int num)
 {
