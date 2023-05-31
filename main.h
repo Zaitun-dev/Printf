@@ -24,7 +24,7 @@ int _printf(const char *format, ...);
 int _putchar(char c);
 int print_char(va_list ap);
 int print_string(char *str);
-int print_number(va_list ap);
+int print_number(int num);
 
 
 

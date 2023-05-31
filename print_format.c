@@ -12,52 +12,61 @@
 * Return: Number of characters printed for the given specifier
 */
 int check_format_specifier(char specifier, va_list ap, int *count);
-
+int print_integer(int num);
 /**
 * _printf - prints any function as specified by the format
 * @format: format used
 * @...:variadic arguments passed (unknown)
 * Return: the output
- */
+*/
 int _printf(const char *format, ...)
 {
-int count = 0;
-int i = 0;
-va_list ap;
-va_start(ap, format);
-while (format[i])
-{
-if (format[i] != '%')
-{
-_putchar(format[i]);
-count++;
+    int count = 0;
+    int i = 0;
+    va_list ap;
+    va_start(ap, format);
+
+    while (format[i])
+    {
+        if (format[i] != '%')
+        {
+            _putchar(format[i]);
+            count++;
+        }
+        else
+        {
+            i++;
+            count += check_format_specifier(format[i], ap, &count);
+        }
+        i++;
+    }
+
+    va_end(ap);
+    return count;
 }
-else
-{
-i++;
-count += check_format_specifier(format[i], ap, &count);
-}
-i++;
-}
-va_end(ap);
-return (count);
-}
+
 int check_format_specifier(char specifier, va_list ap, int *count)
 {
-switch (specifier)
-{
-case 'c':
-_putchar(va_arg(ap, int));
-(*count)++;
-break;
-case 's':
-(*count) += print_string(va_arg(ap, char*));
-break;
-default:
-_putchar('%');
-_putchar(specifier);
-(*count) += 2;
-break;
+    switch (specifier)
+    {
+        case 'c':
+            _putchar(va_arg(ap, int));
+            (*count)++;
+            break;
+        case 's':
+            (*count) += print_string(va_arg(ap, char*));
+            break;
+        case 'd':
+        case 'i':
+            (*count) += print_integer(va_arg(ap, int));
+            break;
+        default:
+            _putchar('%');
+            _putchar(specifier);
+            (*count) += 2;
+            break;
+    }
+
+    return 0;
 }
-return (0);
-}
+
