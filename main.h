@@ -4,7 +4,6 @@
 #include <stdio.h>
 #include <unistd.h>
 
-
 /**
 * struct specifier - Structure to represent a specifier
 * @specifier: The specifier character
@@ -20,6 +19,14 @@ char specifier;
 int (*function)(va_list);
 }
 specifier_t;
+/*
+*check_format_specifier - Check and handle a format specifier
+* @specifier: The format specifier character to check
+* @ap: The va_list containing the variable arguments
+* @count: Pointer to an integer to keep track of number of characters printed
+*/
+int check_format_specifier(char specifier, va_list ap, int *count);
+int print_integer(int num);
 int _printf(const char *format, ...);
 int _putchar(char c);
 int print_char(va_list ap);
