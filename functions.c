@@ -139,14 +139,36 @@ int print_hexadecimal(unsigned int num, int uppercase)
         {
             hex_digits[i] = num % 16;
             num /= 16;
-                        i++;
-        }
+                        i++;        }
 
         for (j = i - 1; j >= 0; j--)
         {
             _putchar(hex[hex_digits[j]]);
             count++;
         }
+    }
+
+    return count;
+}
+/*function that prints an octal*/
+int print_octal(unsigned int num)
+{
+    int octal[32];
+    int i = 0;
+    int count = 0;
+    int j;
+
+    while (num > 0)
+    {
+        octal[i] = num % 8;
+        num /= 8;
+        i++;
+    }
+
+    for (j = i - 1; j >= 0; j--)
+    {
+        _putchar('0' + octal[j]);
+        count++;
     }
 
     return count;

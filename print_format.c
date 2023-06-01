@@ -56,6 +56,9 @@ break;
         case 'x':
             (*count) += print_hexadecimal(va_arg(ap, unsigned int), 0);
             break;
+	case 'o':
+            (*count) += print_octal(va_arg(ap, unsigned int));
+            break;
         default:
             _putchar('%');
             _putchar(specifier);

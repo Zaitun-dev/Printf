@@ -34,6 +34,8 @@ int print_string(char *str);
 int print_number(int num);
 int print_binary(unsigned int num);
 int print_hexadecimal(unsigned int num, int uppercase);
+int print_octal(unsigned int num);
+
 
 
 #endif
