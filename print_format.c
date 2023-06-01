@@ -49,7 +49,7 @@ case 'i':
 break;
 case 'b':
 print_binary(va_arg(ap, unsigned int));
-count += sizeof(unsigned int) * 8;
+(*count) += sizeof(unsigned int) * 8;
 break;
 default:
 _putchar('%');
