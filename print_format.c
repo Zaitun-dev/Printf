@@ -47,31 +47,32 @@ case 'd':
 case 'i':
 (*count) += print_integer(va_arg(ap, int));
 break;
-        case 'b':
-            (*count) += print_binary(va_arg(ap, unsigned int));
-            break;
-        case 'X':
-            (*count) += print_hexadecimal(va_arg(ap, unsigned int), 1);
-            break;
-        case 'x':
-            (*count) += print_hexadecimal(va_arg(ap, unsigned int), 0);
-            break;
-	case 'o':
-            (*count) += print_octal(va_arg(ap, unsigned int));
-            break;
-	case 'u': 
-            (*count) += print_unsigned_integer(va_arg(ap, unsigned int));
-            break;
-	case 'p':
-            (*count) += print_pointer(va_arg(ap, void*));
-            break;
-        default:
-            _putchar('%');
-            _putchar(specifier);
-            (*count) += 2;
-            break;
+case 'b':
+(*count) += print_binary(va_arg(ap, unsigned int));
+break;
+case 'X':
+(*count) += print_hexadecimal(va_arg(ap, unsigned int), 1);
+break;
+case 'x':
+(*count) += print_hexadecimal(va_arg(ap, unsigned int), 0);
+break;
+case 'o':
+(*count) += print_octal(va_arg(ap, unsigned int));
+break;
+case 'u':
+(*count) += print_unsigned_integer(va_arg(ap, unsigned int));
+break;
+case 'p':
+(*count) += print_pointer(va_arg(ap, void*));
+break;
+case 'S':
+(*count) += print_string_nonprintable(va_arg(ap, char*));
+break;
+default:
+_putchar('%');
+_putchar(specifier);
+(*count) += 2;
+break;
 }
-
-return 0;
+return (0);
 }
-

@@ -72,141 +72,181 @@ return (count);
 /**
 * print_binary - Prints the binary representation of an unsigned integer
 * @num: The unsigned integer to convert and print in binary
+* Return: The number of characters printed.
 */
 /* functions that prints binary*/
 int print_binary(unsigned int num)
 {
-    int binary[32];
-    int i = 0;
-    int count = 0;
-    int j;
-
-    if (num == 0)
-    {
-        _putchar('0');
-        return 1;
-    }
-
-    while (num > 0)
-    {
-        binary[i] = num % 2;
-        num /= 2;
-        i++;
-    }
-
-    for (j = i - 1; j >= 0; j--)
-    {
-        _putchar('0' + binary[j]);
-        count++;
-    }
-
-    return count;
+int binary[32];
+int i = 0;
+int count = 0;
+int j;
+if (num == 0)
+{
+_putchar('0');
+return (1);
 }
+while (num > 0)
+{
+binary[i] = num % 2;
+num /= 2;
+i++;
+}
+for (j = i - 1; j >= 0; j--)
+{
+_putchar('0' + binary[j]);
+count++;
+}
+return (count);
+}
+/**
+* print_hexadecimal - Prints the hexadecimal representation of an
+*  unsigned integer
+* @num: The unsigned integer to convert and print in hexadecimal
+* @uppercase: A flag indicating whether to use uppercase letters (1) or
+* lowercase letters (0).
+* Return: The number of characters printed.
+*/
 /*function that prints a hexadecimal*/
 int print_hexadecimal(unsigned int num, int uppercase)
 {
-    char hex[16];
-    int i = 0;
-    int count = 0;
-    int j;
-
-    if (uppercase)
-    {
-        for (i = 0; i < 10; i++)
-            hex[i] = '0' + i;
-        for (; i < 16; i++)
-            hex[i] = 'A' + (i - 10);
-    }
-    else
-    {
-        for (i = 0; i < 10; i++)
-            hex[i] = '0' + i;
-        for (; i < 16; i++)
-            hex[i] = 'a' + (i - 10);
-    }
-
-    if (num == 0)
-    {
-        _putchar('0');
-        count++;
-    }
-    else
-    {
-        int hex_digits[32];
-        i = 0;
-
-        while (num > 0)
-        {
-            hex_digits[i] = num % 16;
-            num /= 16;
-                        i++;        }
-
-        for (j = i - 1; j >= 0; j--)
-        {
-            _putchar(hex[hex_digits[j]]);
-            count++;
-        }
-    }
-
-    return count;
+char hex[16];
+int i = 0;
+int count = 0;
+int j;
+if (uppercase)
+{
+for (i = 0; i < 10; i++)
+hex[i] = '0' + i;
+for (; i < 16; i++)
+hex[i] = 'A' + (i - 10);
 }
+else
+{
+for (i = 0; i < 10; i++)
+hex[i] = '0' + i;
+for (; i < 16; i++)
+hex[i] = 'a' + (i - 10);
+}
+if (num == 0)
+{
+_putchar('0');
+count++;
+}
+else
+{
+int hex_digits[32];
+i = 0;
+while (num > 0)
+{
+hex_digits[i] = num % 16;
+num /= 16;
+i++;
+}
+for (j = i - 1; j >= 0; j--)
+{
+_putchar(hex[hex_digits[j]]);
+count++;
+}
+}
+return (count);
+}
+/**
+* print_octal - Prints the octal representation of an unsigned integer
+* @num: The unsigned integer to convert and print in octal
+* Return: The number of characters printed.
+*/
 /*function that prints an octal*/
 int print_octal(unsigned int num)
 {
-    int octal[32];
-    int i = 0;
-    int count = 0;
-    int j;
-
-    while (num > 0)
-    {
-        octal[i] = num % 8;
-        num /= 8;
-        i++;
-    }
-
-    for (j = i - 1; j >= 0; j--)
-    {
-        _putchar('0' + octal[j]);
-        count++;
-    }
-
-    return count;
+int octal[32];
+int i = 0;
+int count = 0;
+int j;
+while (num > 0)
+{
+octal[i] = num % 8;
+num /= 8;
+i++;
 }
+for (j = i - 1; j >= 0; j--)
+{
+_putchar('0' + octal[j]);
+count++;
+}
+return (count);
+}
+/**
+* print_unsigned_integer - Prints the decimal representation of
+* an unsigned integer
+* @num: The unsigned integer to convert and print
+* Return: The number of characters printed.
+*/
 /*function that prints an unsigned int*/
 int print_unsigned_integer(unsigned int num)
 {
-    int digits[32];
-    int i = 0;
-    int count = 0;
-    int j;
-
-    while (num > 0)
-    {
-        digits[i] = num % 10;
-        num /= 10;
-        i++;
-    }
-
-    for (j = i - 1; j >= 0; j--)
-    {
-        _putchar('0' + digits[j]);
-        count++;
-    }
-
-    return count;
+int digits[32];
+int i = 0;
+int count = 0;
+int j;
+while (num > 0)
+{
+digits[i] = num % 10;
+num /= 10;
+i++;
 }
+for (j = i - 1; j >= 0; j--)
+{
+_putchar('0' + digits[j]);
+count++;
+}
+return (count);
+}
+/**
+* print_pointer - Prints the hexadecimal representation of a memory address
+* @ptr: The pointer to the memory address to print
+* Return: The number of characters printed.
+*/
 /*function that prints an address*/
 int print_pointer(void *ptr)
 {
-    unsigned long int address = (unsigned long int)ptr;
-    int count = 0;
-
-    _putchar('0');
-    _putchar('x');
-    count += 2;
-
-    count += print_hexadecimal(address, 0);
-
-    return count;
+unsigned long int address = (unsigned long int)ptr;
+int count = 0;
+_putchar('0');
+_putchar('x');
+count += 2;
+count += print_hexadecimal(address, 0);
+return (count);
+}
+/**
+* print_string - Prints a string while handling non-printable characters
+* @str: The string to print
+* Return: The number of characters printed.
+*/
+/* function that print a string (S)*/
+int print_string_nonprintable(char *str)
+{
+int count = 0;
+int i = 0;
+if (str == NULL)
+{
+count += print_string("(null)");
+}
+else
+{
+for (i = 0; str[i] != '\0'; i++)
+{
+if (str[i] < 32 || str[i] >= 127)
+{
+count += _putchar('\\');
+count += _putchar('x');
+count += print_hexadecimal((unsigned char)str[i], 1);
+}
+else
+{
+count += _putchar(str[i]);
+}
+}
+}
+return (count);
 }
