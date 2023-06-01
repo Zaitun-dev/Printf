@@ -47,15 +47,22 @@ case 'd':
 case 'i':
 (*count) += print_integer(va_arg(ap, int));
 break;
-case 'b':
-print_binary(va_arg(ap, unsigned int));
-(*count) += sizeof(unsigned int) * 8;
-break;
-default:
-_putchar('%');
-_putchar(specifier);
-(*count) += 2;
-break;
+        case 'b':
+            (*count) += print_binary(va_arg(ap, unsigned int));
+            break;
+        case 'X':
+            (*count) += print_hexadecimal(va_arg(ap, unsigned int), 1);
+            break;
+        case 'x':
+            (*count) += print_hexadecimal(va_arg(ap, unsigned int), 0);
+            break;
+        default:
+            _putchar('%');
+            _putchar(specifier);
+            (*count) += 2;
+            break;
 }
-return (0);
+
+return 0;
 }
+

@@ -74,11 +74,81 @@ return (count);
 * @num: The unsigned integer to convert and print in binary
 */
 /* functions that prints binary*/
-void print_binary(unsigned int num)
+int print_binary(unsigned int num)
 {
-if (num > 1)
+    int binary[32];
+    int i = 0;
+    int count = 0;
+    int j;
+
+    if (num == 0)
+    {
+        _putchar('0');
+        return 1;
+    }
+
+    while (num > 0)
+    {
+        binary[i] = num % 2;
+        num /= 2;
+        i++;
+    }
+
+    for (j = i - 1; j >= 0; j--)
+    {
+        _putchar('0' + binary[j]);
+        count++;
+    }
+
+    return count;
+}
+/*function that prints a hexadecimal*/
+int print_hexadecimal(unsigned int num, int uppercase)
 {
-print_binary(num / 2);
-printf("%u", num % 2);
+    char hex[16];
+    int i = 0;
+    int count = 0;
+    int j;
+
+    if (uppercase)
+    {
+        for (i = 0; i < 10; i++)
+            hex[i] = '0' + i;
+        for (; i < 16; i++)
+            hex[i] = 'A' + (i - 10);
+    }
+    else
+    {
+        for (i = 0; i < 10; i++)
+            hex[i] = '0' + i;
+        for (; i < 16; i++)
+            hex[i] = 'a' + (i - 10);
+    }
+
+    if (num == 0)
+    {
+        _putchar('0');
+        count++;
+    }
+    else
+    {
+        int hex_digits[32];
+        i = 0;
+
+        while (num > 0)
+        {
+            hex_digits[i] = num % 16;
+            num /= 16;
+                        i++;
+        }
+
+        for (j = i - 1; j >= 0; j--)
+        {
+            _putchar(hex[hex_digits[j]]);
+            count++;
+        }
+    }
+
+    return count;
 }
-}
+

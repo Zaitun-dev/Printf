@@ -32,7 +32,8 @@ int _putchar(char c);
 int print_char(va_list ap);
 int print_string(char *str);
 int print_number(int num);
-void print_binary(unsigned int num);
+int print_binary(unsigned int num);
+int print_hexadecimal(unsigned int num, int uppercase);
 
 
 #endif
