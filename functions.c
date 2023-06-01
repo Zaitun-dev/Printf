@@ -196,4 +196,17 @@ int print_unsigned_integer(unsigned int num)
 
     return count;
 }
+/*function that prints an address*/
+int print_pointer(void *ptr)
+{
+    unsigned long int address = (unsigned long int)ptr;
+    int count = 0;
 
+    _putchar('0');
+    _putchar('x');
+    count += 2;
+
+    count += print_hexadecimal(address, 0);
+
+    return count;
+}

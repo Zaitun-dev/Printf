@@ -62,6 +62,9 @@ break;
 	case 'u': 
             (*count) += print_unsigned_integer(va_arg(ap, unsigned int));
             break;
+	case 'p':
+            (*count) += print_pointer(va_arg(ap, void*));
+            break;
         default:
             _putchar('%');
             _putchar(specifier);
