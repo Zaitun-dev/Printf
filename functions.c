@@ -173,4 +173,27 @@ int print_octal(unsigned int num)
 
     return count;
 }
+/*function that prints an unsigned int*/
+int print_unsigned_integer(unsigned int num)
+{
+    int digits[32];
+    int i = 0;
+    int count = 0;
+    int j;
+
+    while (num > 0)
+    {
+        digits[i] = num % 10;
+        num /= 10;
+        i++;
+    }
+
+    for (j = i - 1; j >= 0; j--)
+    {
+        _putchar('0' + digits[j]);
+        count++;
+    }
+
+    return count;
+}
 

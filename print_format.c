@@ -59,6 +59,9 @@ break;
 	case 'o':
             (*count) += print_octal(va_arg(ap, unsigned int));
             break;
+	case 'u': 
+            (*count) += print_unsigned_integer(va_arg(ap, unsigned int));
+            break;
         default:
             _putchar('%');
             _putchar(specifier);
